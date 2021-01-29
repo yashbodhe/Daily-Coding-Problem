@@ -1,0 +1,17 @@
+def reConstruct(a,s,res):
+    if not len(s):
+        return True
+    for word in a:
+        if len(word)<=len(s) and word==s[:len(word)]:
+            res.append(word)
+            if reConstruct(a,s[len(word):],res):
+                return True
+            res.append(word)
+if __name__=="__main__":
+    s=input()
+    a=list(input().split())
+    res=[]
+    if reConstruct(a,s,res):
+        print(res)
+    else:
+        print("null")
